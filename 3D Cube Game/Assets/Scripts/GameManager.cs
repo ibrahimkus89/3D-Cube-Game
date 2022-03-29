@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     int score = 0;
     bool gameStarted = false;
+    public GameObject menuPanel;
 
     public Text scoreText;
 
@@ -36,7 +37,10 @@ public class GameManager : MonoBehaviour
     {
         if (Input.anyKeyDown && !gameStarted)
         {
+            menuPanel.SetActive(false);
             scoreText.gameObject.SetActive(true);
+
+
             StartCoroutine(SpawnEnemies());
             gameStarted = true;
 
