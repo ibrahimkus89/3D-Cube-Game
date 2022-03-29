@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class GameManager : MonoBehaviour
     public Transform spawnPoint;
     public float maxSpawnPointX;
 
+    int score = 0;
+
+    public Text scoreText;
 
     public static GameManager instance;
 
@@ -56,5 +60,11 @@ public class GameManager : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void ScoreUp()
+    {
+        score++;
+        scoreText.text = score.ToString();
     }
 }
