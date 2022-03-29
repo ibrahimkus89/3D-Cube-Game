@@ -22,4 +22,12 @@ public class Player : MonoBehaviour
        float limitedX = Mathf.Clamp(transform.position.x,-maxX,maxX);
         transform.position = new Vector3(limitedX,transform.position.y,transform.position.z);
     }
+
+    private void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.CompareTag("Enemy"))
+        {
+            GameManager.instance.Restart();
+        }
+    }
 }
