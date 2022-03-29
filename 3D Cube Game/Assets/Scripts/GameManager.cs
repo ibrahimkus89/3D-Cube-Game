@@ -11,10 +11,13 @@ public class GameManager : MonoBehaviour
     public float maxSpawnPointX;
 
     int score = 0;
+    int highScore = 0;
+
     bool gameStarted = false;
     public GameObject menuPanel;
 
     public Text scoreText;
+    public Text highScoreText;
 
     public static GameManager instance;
 
@@ -30,6 +33,11 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        if (PlayerPrefs.HasKey("highScore"))
+        {
+            highScore = PlayerPrefs.GetInt("highScore");
+            highScoreText.text = "High Score : " + highScore.ToString();
+        }
     }
 
     
@@ -69,6 +77,12 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
+        if (score > highScore)
+        {
+            highScore = score;
+            PlayerPrefs.SetInt("highScore",highScore);
+        }
+
         SceneManager.LoadScene(0);
     }
 
