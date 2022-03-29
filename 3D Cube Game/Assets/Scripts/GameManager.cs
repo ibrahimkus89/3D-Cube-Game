@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public float maxSpawnPointX;
 
     int score = 0;
+    bool gameStarted = false;
 
     public Text scoreText;
 
@@ -28,13 +29,18 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(SpawnEnemies());
     }
 
     
     void Update()
     {
-        
+        if (Input.anyKeyDown && !gameStarted)
+        {
+            scoreText.gameObject.SetActive(true);
+            StartCoroutine(SpawnEnemies());
+            gameStarted = true;
+
+        }
     }
 
     IEnumerator SpawnEnemies()

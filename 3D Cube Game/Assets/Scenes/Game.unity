@@ -155,7 +155,7 @@ MonoBehaviour:
   enemy: {fileID: 2868305418526286013, guid: e27d52325869a4940849e597c1ac47de, type: 3}
   spawnPoint: {fileID: 646650619}
   maxSpawnPointX: 1.5
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 1093986050}
 --- !u!4 &195297536
 Transform:
   m_ObjectHideFlags: 0
